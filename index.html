@@ -105,17 +105,16 @@
         }
         .btn-join-nav:hover { background-color: #001a3a; box-shadow: 0 5px 15px rgba(0,40,85,0.3); }
 
-        /* --- HERO SECTION (ADJUSTED FOR VISIBILITY) --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             position: relative;
-            /* Increased padding pushes content down to bottom 1/3rd */
             padding-top: 300px; 
             padding-bottom: 120px; 
-            height: 800px; /* Tall height to accommodate the drop */
+            height: 800px; 
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Align content to bottom */
-            overflow: visible; /* Allow overlap */
+            align-items: flex-end; 
+            overflow: visible; 
         }
 
         .hero-bg-stage {
@@ -124,7 +123,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Gradient overlay kept subtle at top to show faces, darker at bottom for text */
             background-image: linear-gradient(to bottom, rgba(0, 40, 85, 0.1) 0%, rgba(0, 40, 85, 0.4) 60%, rgba(0, 40, 85, 0.9) 100%), url('assets/hero.jpg'); 
             background-size: cover;
             background-position: center center;
@@ -139,13 +137,13 @@
             z-index: 10;
             display: flex;
             align-items: flex-end; 
-            margin-bottom: -160px; /* This pushes the whole row down into the next section */
+            margin-bottom: -160px; 
         }
 
         .hero-content {
             flex: 1;
             padding-right: 50px;
-            margin-bottom: 100px; /* Align text with calculator body */
+            margin-bottom: 100px; 
         }
 
         .hero-content h1 {
@@ -181,7 +179,7 @@
         }
         .trust-pill i { color: var(--brand-green); }
 
-        /* --- CALCULATOR WIDGET (Dropped Low) --- */
+        /* --- CALCULATOR WIDGET --- */
         .calculator-wrapper {
             flex: 0 0 380px;
             background: var(--white);
@@ -190,7 +188,7 @@
             box-shadow: 0 25px 60px rgba(0,0,0,0.3);
             overflow: hidden;
             border-top: 6px solid var(--brand-gold);
-            margin-bottom: 60px; /* Creates the "hang" effect */
+            margin-bottom: 60px; 
         }
 
         .calc-header {
@@ -243,9 +241,9 @@
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
 
-        /* --- ID FEATURE SECTION (Padding increased for overlap) --- */
+        /* --- ID FEATURE SECTION --- */
         .id-feature-section {
-            padding-top: 180px; /* Extra padding to account for Calculator overlap */
+            padding-top: 180px; 
             padding-bottom: 80px;
             padding-left: 8%;
             padding-right: 8%;
@@ -360,7 +358,6 @@
         .partner-img { 
             flex: 1; 
             height: 350px; 
-            /* Ensure 'partner.jpg' is in 'assets' folder */
             background: url('assets/partner.jpg') center/cover; 
             border-radius: 6px; 
         }
@@ -383,6 +380,12 @@
         }
         .clean-break-box h5 { color: var(--brand-green); margin-bottom: 10px; font-size: 14px; display:flex; align-items:center; gap:8px;}
         .clean-break-box p { font-size: 13px; line-height: 1.6; opacity: 0.8; }
+
+        /* Security Tech List Styles */
+        .tech-item { margin-bottom: 15px; display:flex; gap:12px; }
+        .tech-item i { color: var(--brand-green); margin-top:3px; font-size:14px; }
+        .tech-title { color: white; font-weight:700; display:block; font-size:13px; }
+        .tech-desc { font-size:12px; opacity:0.7; }
 
         /* Mobile Responsive */
         @media (max-width: 1000px) {
@@ -596,7 +599,7 @@
                     <strong>Note:</strong> A mandatory digital pre-inspection is conducted on every vehicle before work begins to ensure transparency and protect your asset.
                 </p>
                 <div style="display:flex; gap:15px;">
-                    <a href="#" style="color:var(--brand-accent-green); font-weight:700; text-decoration:none;">View Gallery &rarr;</a>
+                    <a href="#" style="color:var(--brand-green); font-weight:700; text-decoration:none;">View Gallery &rarr;</a>
                 </div>
             </div>
         </div>
@@ -630,15 +633,42 @@
             </div>
 
             <div>
-                <div class="footer-head">Security</div>
-                <div style="font-size:13px; color:#ccc; margin-bottom:10px;">
-                    <i class="fas fa-lock" style="color:var(--brand-accent-green);"></i> SSL Encrypted
+                <div class="footer-head">Data Infrastructure</div>
+                
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <div>
+                        <span class="tech-title">Google Cloud & Firebase</span>
+                        <span class="tech-desc">Bank-Grade Cloud Hosting</span>
+                    </div>
                 </div>
-                <div style="font-size:13px; color:#ccc; margin-bottom:20px;">
-                    <i class="fas fa-user-shield" style="color:var(--brand-accent-green);"></i> Data Privacy Secured
+
+                <div class="tech-item">
+                    <i class="fas fa-network-wired"></i>
+                    <div>
+                        <span class="tech-title">Tailscale Encrypted</span>
+                        <span class="tech-desc">Secure Mesh Network</span>
+                    </div>
                 </div>
-                <div style="font-size:12px; color:#888;">
-                    Payments Powered by <strong style="color:white;">PayFast</strong> (Independent Merchant)
+
+                <div class="tech-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <span class="tech-title">Honeypot Active</span>
+                        <span class="tech-desc">Anti-Spam Protection</span>
+                    </div>
+                </div>
+
+                <div class="tech-item" style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
+                    <i class="fas fa-share-alt" style="color:#aaa;"></i>
+                    <div>
+                        <span class="tech-title" style="color:#ccc;">Data Shared Only With:</span>
+                        <span class="tech-desc" style="color:white; font-weight:700;">International Panel Shop</span>
+                    </div>
+                </div>
+
+                <div style="font-size:12px; color:#888; margin-top:20px;">
+                    <i class="fas fa-check-circle" style="color:var(--brand-green);"></i> POPIA Aligned Standards
                 </div>
             </div>
         </div>
@@ -649,14 +679,8 @@
 
     <script>
         function updateCalculator() {
-            // Get value from input
             const inputVal = document.getElementById('calc-input').value;
-            
-            // Logic: 1 Rand = 1 SureBuck
-            // Format with commas for thousands
             const formattedVal = Number(inputVal).toLocaleString();
-            
-            // Update display
             document.getElementById('calc-output').innerText = formattedVal;
         }
     </script>
