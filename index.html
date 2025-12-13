@@ -105,16 +105,15 @@
         }
         .btn-join-nav:hover { background-color: #001a3a; box-shadow: 0 5px 15px rgba(0,40,85,0.3); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (CLEAN & CENTERED) --- */
         .hero-section {
             position: relative;
-            padding-top: 300px; 
-            padding-bottom: 120px; 
-            height: 800px; 
+            padding-top: 100px; /* Space for nav */
+            height: 700px; /* Good height for impact */
             display: flex;
             justify-content: center;
-            align-items: flex-end; 
-            overflow: visible; 
+            align-items: center; 
+            overflow: hidden;
         }
 
         .hero-bg-stage {
@@ -123,130 +122,111 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(to bottom, rgba(0, 40, 85, 0.1) 0%, rgba(0, 40, 85, 0.4) 60%, rgba(0, 40, 85, 0.9) 100%), url('assets/hero.jpg'); 
+            /* Darker overlay to make white text pop on professional image */
+            background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/hero.jpg'); 
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             z-index: 0;
         }
 
-        .hero-container {
-            width: 84%;
-            max-width: 1200px;
+        .hero-content {
             position: relative;
             z-index: 10;
-            display: flex;
-            align-items: flex-end; 
-            margin-bottom: -160px; 
-        }
-
-        .hero-content {
-            flex: 1;
-            padding-right: 50px;
-            margin-bottom: 100px; 
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
-            font-size: 56px;
+            font-size: 64px;
             font-weight: 800;
             color: var(--white);
             line-height: 1.1;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            margin-bottom: 30px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .hero-content p {
-            font-size: 22px;
+            font-size: 24px;
             color: rgba(255,255,255,0.95);
-            margin-bottom: 35px;
-            max-width: 500px;
+            margin-bottom: 40px;
             line-height: 1.6;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
 
-        .trust-pill-row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .trust-pill {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: white;
-            padding: 10px 20px;
+        .hero-btn {
+            background-color: var(--brand-green);
+            color: white;
+            padding: 18px 45px;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--brand-navy);
-        }
-        .trust-pill i { color: var(--brand-green); }
-
-        /* --- CALCULATOR WIDGET --- */
-        .calculator-wrapper {
-            flex: 0 0 380px;
-            background: var(--white);
-            padding: 0;
-            border-radius: 8px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            border-top: 6px solid var(--brand-gold);
-            margin-bottom: 60px; 
-        }
-
-        .calc-header {
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
-        }
-        .calc-header h3 { font-size: 20px; font-weight: 800; color: var(--brand-navy); }
-        .calc-header p { font-size: 13px; color: #888; margin-top: 5px; }
-
-        .calc-body { padding: 25px; }
-
-        .input-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 8px;
+            font-weight: 800;
+            text-decoration: none;
             text-transform: uppercase;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
             font-size: 16px;
-            margin-bottom: 20px;
-            background: #fdfdfd;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(118, 199, 32, 0.4);
             transition: 0.3s;
+            display: inline-block;
         }
-        .input-field:focus { border-color: var(--brand-navy); outline: none; background: white; }
+        .hero-btn:hover { background-color: var(--brand-green-hover); transform: translateY(-3px); }
 
-        .calc-result {
-            background: var(--surface-light);
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            border: 1px dashed #cbd5e0;
+        /* --- HOW IT WORKS (THE EXPLANATION STRIP) --- */
+        .how-it-works-strip {
+            background: white;
+            padding: 60px 8%;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            z-index: 20;
+            margin-top: -50px; /* Pull up over hero slightly */
+            border-radius: 12px 12px 0 0;
+            margin-left: 5%;
+            margin-right: 5%;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
         }
-        .calc-result-val { font-size: 32px; font-weight: 800; color: var(--brand-navy); }
-        .calc-result-sub { font-size: 12px; color: #666; margin-bottom: 5px; }
-        
-        .conversion-rate {
-            text-align: center;
-            font-weight: 700;
-            color: var(--brand-green);
-            margin-bottom: 15px;
+
+        .steps-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .step-item {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-icon {
+            background: var(--surface-light);
+            color: var(--brand-navy);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .step-text h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--brand-navy);
+            margin-bottom: 8px;
+        }
+
+        .step-text p {
             font-size: 14px;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+            color: var(--text-gray);
+            line-height: 1.5;
         }
 
         /* --- ID FEATURE SECTION --- */
         .id-feature-section {
-            padding-top: 180px; 
-            padding-bottom: 80px;
-            padding-left: 8%;
-            padding-right: 8%;
+            padding: 100px 8%;
             background: #fff;
             border-bottom: 1px solid var(--border-color);
         }
@@ -267,6 +247,22 @@
             position: absolute; top: 15px; right: 20px; font-size: 10px; opacity: 0.7; letter-spacing: 1px;
         }
         .id-number { font-family: monospace; font-size: 24px; letter-spacing: 2px; margin: 20px 0; display:block; text-align:center; background:rgba(0,0,0,0.2); padding:10px; border-radius:4px; }
+        
+        .trust-pill-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .trust-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--brand-navy);
+        }
+        .trust-pill i { color: var(--brand-green); }
 
         /* --- PROMO BANNER --- */
         .promo-banner {
@@ -292,7 +288,7 @@
         .promo-text { font-weight: 700; font-size: 18px; }
 
         /* --- PLANS GRID --- */
-        .section-std { padding: 80px 8%; }
+        .section-std { padding: 80px 8%; background: var(--surface-light); }
         .section-header { text-align: center; margin-bottom: 70px; }
         .section-header h2 { font-size: 36px; font-weight: 800; color: var(--brand-navy); margin-bottom: 15px; }
         .section-header p { font-size: 18px; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
@@ -353,13 +349,15 @@
         .plan-card:hover .plan-btn { background: var(--brand-navy); color: white; }
 
         /* --- PARTNER SECTION --- */
-        .partner-section { background: var(--surface-light); padding: 100px 8%; }
-        .partner-wrapper { display: flex; gap: 60px; align-items: center; background: white; padding: 60px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        .partner-section { background: white; padding: 100px 8%; border-top:1px solid #eee; }
+        .partner-wrapper { display: flex; gap: 60px; align-items: center; background: white; padding: 0; }
         .partner-img { 
             flex: 1; 
-            height: 350px; 
+            height: 400px; 
+            /* Ensure 'partner.jpg' is in 'assets' folder */
             background: url('assets/partner.jpg') center/cover; 
-            border-radius: 6px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
         .partner-txt { flex: 1; }
         .partner-badge { color: var(--brand-green); font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; margin-bottom: 15px; display: block; }
@@ -389,12 +387,10 @@
 
         /* Mobile Responsive */
         @media (max-width: 1000px) {
-            .hero-section { flex-direction: column; padding-top: 120px; text-align: center; height: auto; padding-bottom: 60px; }
-            .hero-bg-stage { width: 100%; height: 100%; opacity: 0.4; background-color:#002855; } 
-            .hero-container { flex-direction: column; align-items: center; margin-bottom: 0; }
-            .hero-content { padding-right: 0; margin-bottom: 50px; }
-            .calculator-wrapper { width: 100%; max-width: 480px; margin-top: 0; margin-bottom: 0; }
-            .id-feature-section { padding-top: 60px; }
+            .hero-section { text-align: center; height: auto; padding-top: 150px; padding-bottom: 100px; }
+            .hero-content h1 { font-size: 42px; }
+            .how-it-works-strip { margin-left: 0; margin-right: 0; border-radius: 0; margin-top: 0; }
+            .steps-grid { flex-direction: column; gap: 30px; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .partner-wrapper { flex-direction: column; }
             .partner-img { width: 100%; height: 250px; }
@@ -424,41 +420,39 @@
     <section class="hero-section">
         <div class="hero-bg-stage"></div> 
         
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>The Smart Way to Pre-Pay Your Car Repairs.</h1>
-                <p>Avoid unexpected automotive bills. Load SureBucks monthly and unlock exclusive discounts. No debt. No interest.</p>
-                
-                <div class="trust-pill-row">
-                    <div class="trust-pill"><i class="fas fa-check-circle"></i> CPA Compliant Service</div>
-                    <div class="trust-pill"><i class="fas fa-check-circle"></i> Digital Credits</div>
-                    <div class="trust-pill"><i class="fas fa-check-circle"></i> No Credit Checks</div>
+        <div class="hero-content">
+            <h1>Pre-Pay Your Repairs.<br>Protect Your Asset.</h1>
+            <p>Avoid unexpected automotive bills. Convert cash into secure SureBucks, lock in repair quality, and drive stress-free.</p>
+            
+            <a href="#how-it-works" class="hero-btn">See How It Works</a>
+        </div>
+    </section>
+
+    <div class="how-it-works-strip" id="how-it-works">
+        <div class="steps-grid">
+            <div class="step-item">
+                <div class="step-icon"><i class="fas fa-coins"></i></div>
+                <div class="step-text">
+                    <h3>1. Load SureBucks</h3>
+                    <p>Exchange Rands for SureBucks (R1 = 1 SB). Your funds are instantly secured in your digital wallet.</p>
                 </div>
             </div>
-
-            <div class="calculator-wrapper">
-                <div class="calc-header">
-                    <h3>SureBucks Converter</h3>
-                    <p>Check the exchange rate.</p>
+            <div class="step-item">
+                <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="step-text">
+                    <h3>2. Unlock Perks</h3>
+                    <p>The more you load, the more you unlock. Get VIP access to discounts and free detailing services.</p>
                 </div>
-                <div class="calc-body">
-                    <div class="conversion-rate">
-                        <i class="fas fa-coins"></i> R1 = 1 SureBuck
-                    </div>
-
-                    <label class="input-label">I want to load (ZAR)</label>
-                    <input type="number" id="calc-input" class="input-field" placeholder="e.g. 2500" oninput="updateCalculator()">
-                    
-                    <div class="calc-result">
-                        <div class="calc-result-sub">You Receive</div>
-                        <div class="calc-result-val"><span id="calc-output">0</span> <span style="font-size:16px;">SureBucks</span></div>
-                    </div>
-                    
-                    <p style="text-align:center; font-size:12px; color:#888;">Log in to the portal to complete transaction.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-icon"><i class="fas fa-wrench"></i></div>
+                <div class="step-text">
+                    <h3>3. Repair & Go</h3>
+                    <p>Use your SureBucks at International Panel Shop. No cash hassle, just premium service.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <section class="id-feature-section">
         <div class="id-grid">
@@ -467,8 +461,8 @@
                 <p><strong>Receive funds from anyone, anywhere.</strong><br>
                 Every account gets a unique SureDrive ID. Share this code with family members, friends, or even third parties (like in a fender bender settlement) to receive SureBucks directly into your repair fund.</p>
                 <div class="trust-pill-row">
-                    <div class="trust-pill" style="border:1px solid #eee;"><i class="fas fa-share-alt"></i> Shareable</div>
-                    <div class="trust-pill" style="border:1px solid #eee;"><i class="fas fa-bolt"></i> Instant Transfer</div>
+                    <div class="trust-pill"><i class="fas fa-share-alt"></i> Shareable</div>
+                    <div class="trust-pill"><i class="fas fa-bolt"></i> Instant Transfer</div>
                 </div>
             </div>
             <div class="id-card-visual">
@@ -676,14 +670,6 @@
             &copy; 2025 SureDrive (Pty) Ltd. All rights reserved.
         </div>
     </footer>
-
-    <script>
-        function updateCalculator() {
-            const inputVal = document.getElementById('calc-input').value;
-            const formattedVal = Number(inputVal).toLocaleString();
-            document.getElementById('calc-output').innerText = formattedVal;
-        }
-    </script>
 
 </body>
 </html>
