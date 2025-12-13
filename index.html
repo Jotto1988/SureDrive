@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SureDrive: The smart, CPA-compliant way to pre-pay for vehicle repairs. Secure digital service credits for panel beating and mechanical repairs.">
+    <meta name="description" content="SureDrive: The smart way to pre-pay for automotive repairs. Secure digital service credits for panel beating and mechanical repairs.">
     <meta name="robots" content="index, follow">
     <title>SureDrive | Your Car. Your Pace. Secured.</title>
     
@@ -50,7 +50,7 @@
         /* --- NAVIGATION --- */
         nav {
             background-color: var(--white);
-            height: 100px; /* Slightly taller for bigger logo */
+            height: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,7 +64,6 @@
 
         .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
         
-        /* LOGO FIX: Bigger and with subtle shadow to pop */
         .logo-img { 
             height: 70px; 
             width: auto; 
@@ -106,16 +105,17 @@
         }
         .btn-join-nav:hover { background-color: #001a3a; box-shadow: 0 5px 15px rgba(0,40,85,0.3); }
 
-        /* --- HERO SECTION (FIXED HEIGHT & SHARPNESS) --- */
+        /* --- HERO SECTION (ADJUSTED FOR VISIBILITY) --- */
         .hero-section {
             position: relative;
-            padding-top: 100px;
-            padding-bottom: 80px;
-            height: 600px; /* Fixed height stops it from getting huge and blurred */
+            /* Increased padding pushes content down to bottom 1/3rd */
+            padding-top: 300px; 
+            padding-bottom: 120px; 
+            height: 800px; /* Tall height to accommodate the drop */
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Push content lower */
-            overflow: hidden;
+            align-items: flex-end; /* Align content to bottom */
+            overflow: visible; /* Allow overlap */
         }
 
         .hero-bg-stage {
@@ -124,8 +124,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Gradient overlay makes text readable over any image */
-            background-image: linear-gradient(rgba(0, 40, 85, 0.6), rgba(0, 40, 85, 0.3)), url('assets/hero.jpg'); 
+            /* Gradient overlay kept subtle at top to show faces, darker at bottom for text */
+            background-image: linear-gradient(to bottom, rgba(0, 40, 85, 0.1) 0%, rgba(0, 40, 85, 0.4) 60%, rgba(0, 40, 85, 0.9) 100%), url('assets/hero.jpg'); 
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -138,14 +138,14 @@
             position: relative;
             z-index: 10;
             display: flex;
-            align-items: flex-end; /* Align content with the calculator */
-            padding-bottom: 20px;
+            align-items: flex-end; 
+            margin-bottom: -160px; /* This pushes the whole row down into the next section */
         }
 
         .hero-content {
             flex: 1;
             padding-right: 50px;
-            margin-bottom: 40px; 
+            margin-bottom: 100px; /* Align text with calculator body */
         }
 
         .hero-content h1 {
@@ -154,7 +154,7 @@
             color: var(--white);
             line-height: 1.1;
             margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .hero-content p {
@@ -163,7 +163,7 @@
             margin-bottom: 35px;
             max-width: 500px;
             line-height: 1.6;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
 
         .trust-pill-row { display: flex; gap: 15px; flex-wrap: wrap; }
@@ -181,7 +181,7 @@
         }
         .trust-pill i { color: var(--brand-green); }
 
-        /* --- CALCULATOR WIDGET (Lowered & Functional) --- */
+        /* --- CALCULATOR WIDGET (Dropped Low) --- */
         .calculator-wrapper {
             flex: 0 0 380px;
             background: var(--white);
@@ -190,7 +190,7 @@
             box-shadow: 0 25px 60px rgba(0,0,0,0.3);
             overflow: hidden;
             border-top: 6px solid var(--brand-gold);
-            margin-bottom: -40px; /* Slight overlap for "floating" effect */
+            margin-bottom: 60px; /* Creates the "hang" effect */
         }
 
         .calc-header {
@@ -243,33 +243,12 @@
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
 
-        /* --- PROMO BANNER --- */
-        .promo-banner {
-            background-color: var(--brand-navy);
-            color: white;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            margin-top: 0; /* Connected to hero */
-        }
-        .promo-banner::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
-            background-size: 200% 200%;
-            animation: shine 4s infinite;
-        }
-        @keyframes shine { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        
-        .promo-content { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 20px; }
-        .promo-tag { background: var(--brand-gold); color: var(--brand-navy); padding: 6px 12px; font-weight: 800; font-size: 13px; border-radius: 4px; text-transform: uppercase; }
-        .promo-text { font-weight: 700; font-size: 18px; }
-
-        /* --- ID FEATURE SECTION --- */
+        /* --- ID FEATURE SECTION (Padding increased for overlap) --- */
         .id-feature-section {
-            padding: 80px 8%;
+            padding-top: 180px; /* Extra padding to account for Calculator overlap */
+            padding-bottom: 80px;
+            padding-left: 8%;
+            padding-right: 8%;
             background: #fff;
             border-bottom: 1px solid var(--border-color);
         }
@@ -290,6 +269,29 @@
             position: absolute; top: 15px; right: 20px; font-size: 10px; opacity: 0.7; letter-spacing: 1px;
         }
         .id-number { font-family: monospace; font-size: 24px; letter-spacing: 2px; margin: 20px 0; display:block; text-align:center; background:rgba(0,0,0,0.2); padding:10px; border-radius:4px; }
+
+        /* --- PROMO BANNER --- */
+        .promo-banner {
+            background-color: var(--brand-navy);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+            background-size: 200% 200%;
+            animation: shine 4s infinite;
+        }
+        @keyframes shine { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        .promo-content { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .promo-tag { background: var(--brand-gold); color: var(--brand-navy); padding: 6px 12px; font-weight: 800; font-size: 13px; border-radius: 4px; text-transform: uppercase; }
+        .promo-text { font-weight: 700; font-size: 18px; }
 
         /* --- PLANS GRID --- */
         .section-std { padding: 80px 8%; }
@@ -386,9 +388,10 @@
         @media (max-width: 1000px) {
             .hero-section { flex-direction: column; padding-top: 120px; text-align: center; height: auto; padding-bottom: 60px; }
             .hero-bg-stage { width: 100%; height: 100%; opacity: 0.4; background-color:#002855; } 
-            .hero-container { flex-direction: column; align-items: center; }
+            .hero-container { flex-direction: column; align-items: center; margin-bottom: 0; }
             .hero-content { padding-right: 0; margin-bottom: 50px; }
             .calculator-wrapper { width: 100%; max-width: 480px; margin-top: 0; margin-bottom: 0; }
+            .id-feature-section { padding-top: 60px; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .partner-wrapper { flex-direction: column; }
             .partner-img { width: 100%; height: 250px; }
@@ -421,7 +424,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1>The Smart Way to Pre-Pay Your Car Repairs.</h1>
-                <p>Avoid unexpected mechanic bills. Load SureBucks monthly and unlock exclusive discounts. No debt. No interest.</p>
+                <p>Avoid unexpected automotive bills. Load SureBucks monthly and unlock exclusive discounts. No debt. No interest.</p>
                 
                 <div class="trust-pill-row">
                     <div class="trust-pill"><i class="fas fa-check-circle"></i> CPA Compliant Service</div>
@@ -632,7 +635,7 @@
                     <i class="fas fa-lock" style="color:var(--brand-accent-green);"></i> SSL Encrypted
                 </div>
                 <div style="font-size:13px; color:#ccc; margin-bottom:20px;">
-                    <i class="fas fa-shield-alt" style="color:var(--brand-accent-green);"></i> POPIA Compliant
+                    <i class="fas fa-user-shield" style="color:var(--brand-accent-green);"></i> Data Privacy Secured
                 </div>
                 <div style="font-size:12px; color:#888;">
                     Payments Powered by <strong style="color:white;">PayFast</strong> (Independent Merchant)
