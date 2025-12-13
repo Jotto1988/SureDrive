@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SureDrive | Your Car. Your Pace. Secured.</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- REVISED PALETTE (Santam-inspired Navy & Gold with Professional Green) --- */
+        :root {
+            --brand-navy: #002855; /* Deep Santam-like Navy */
+            --brand-accent-green: #4CAF50; /* Professional Green */
+            --brand-gold: #FFC107; /* Santam-like Gold highlight */
+            --surface-light: #f4f4f4;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --border-color: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+        body { background-color: var(--white); color: var(--text-dark); overflow-x: hidden; }
+
+        /* --- HEADER --- */
+        nav {
+            background-color: var(--white);
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-img { height: 55px; width: auto; }
+
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { 
+            color: var(--text-dark); 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s; 
+        }
+        .nav-links a:hover { color: var(--brand-accent-green); }
+
+        .btn-login-nav { 
+            color: var(--brand-navy); 
+            font-weight: 700; 
+            text-decoration: none; 
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        
+        .btn-join-nav { 
+            background-color: var(--brand-navy); 
+            color: var(--white); 
+            padding: 12px 30px; 
+            border-radius: 4px;
+            font-weight: 700; 
+            text-decoration: none; 
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: 0.3s; 
+        }
+        .btn-join-nav:hover { background-color: #001a3a; }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background-color: var(--surface-light);
+            min-height: 700px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-bg-stage {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background-image: url('image_7.png'); /* Using the banner from the user request */
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        .hero-container {
+            width: 84%;
+            max-width: 1200px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--brand-navy);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 450px;
+            line-height: 1.6;
+        }
+
+        .trust-pill-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .trust-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--brand-navy);
+        }
+        .trust-pill i { color: var(--brand-accent-green); }
+
+        /* --- CALCULATOR WIDGET (CLEANED UP) --- */
+        .calculator-wrapper {
+            flex: 0 0 400px;
+            background: var(--white);
+            padding: 0;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border-top: 5px solid var(--brand-gold); /* Santam-like gold strip */
+        }
+
+        .calc-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .calc-header h3 { font-size: 20px; font-weight: 800; color: var(--brand-navy); }
+        .calc-header p { font-size: 13px; color: #888; margin-top: 5px; }
+
+        .calc-body { padding: 30px; }
+
+        .input-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            background: #fdfdfd;
+            transition: 0.3s;
+        }
+        .input-field:focus { border-color: var(--brand-navy); outline: none; background: white; }
+
+        .calc-result {
+            background: var(--surface-light);
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 1px dashed #ccc;
+        }
+        .calc-result-val { font-size: 28px; font-weight: 800; color: var(--brand-navy); }
+        .calc-result-sub { font-size: 12px; color: #666; }
+        
+        .conversion-rate {
+            text-align: center;
+            font-weight: 700;
+            color: var(--brand-accent-green);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* --- PROMO BANNER --- */
+        .promo-banner {
+            background-color: var(--brand-navy);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+            background-size: 200% 200%;
+            animation: shine 3s infinite;
+        }
+        @keyframes shine { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        .promo-content { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .promo-tag { background: var(--brand-gold); color: var(--brand-navy); padding: 5px 10px; font-weight: 800; font-size: 12px; border-radius: 3px; text-transform: uppercase; }
+        .promo-text { font-weight: 700; font-size: 16px; }
+
+        /* --- GRID SECTIONS --- */
+        .section-std { padding: 80px 8%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 32px; font-weight: 800; color: var(--brand-navy); margin-bottom: 15px; }
+        .section-header p { font-size: 16px; color: var(--text-gray); max-width: 600px; margin: 0 auto; }
+
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .plan-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            position: relative;
+        }
+        .plan-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: var(--brand-accent-green); }
+        .plan-card.featured { border-top: 5px solid var(--brand-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+        .plan-head { padding: 30px; background: #fdfdfd; border-bottom: 1px solid var(--border-color); }
+        .plan-icon { font-size: 32px; color: var(--brand-navy); margin-bottom: 15px; }
+        .plan-title { font-size: 22px; font-weight: 800; color: var(--text-dark); }
+        .plan-sub { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
+
+        .bonus-pill {
+            background: var(--brand-accent-green);
+            color: white;
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-top: 15px;
+        }
+
+        .plan-body { padding: 30px; }
+        .feature-list { list-style: none; }
+        .feature-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 14px; color: var(--text-dark); }
+        .feature-item i { color: #ccc; margin-top: 3px; }
+        .feature-item i.active { color: var(--brand-accent-green); }
+        .locked-text { color: #999; font-size: 12px; }
+
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--brand-navy);
+            color: var(--brand-navy);
+            text-align: center;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .plan-card:hover .plan-btn { background: var(--brand-navy); color: white; }
+
+        /* --- PARTNER SECTION --- */
+        .partner-section { background: var(--surface-light); padding: 80px 8%; }
+        .partner-wrapper { display: flex; gap: 50px; align-items: center; background: white; padding: 50px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .partner-img { flex: 1; height: 300px; background: url('https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000') center/cover; border-radius: 4px; }
+        .partner-txt { flex: 1; }
+        .partner-badge { color: var(--brand-accent-green); font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+        
+        /* --- FOOTER --- */
+        footer { background-color: var(--brand-navy); color: #ccc; padding: 70px 8% 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .footer-head { color: white; font-weight: 700; margin-bottom: 20px; font-size: 15px; text-transform: uppercase; }
+        .footer-link { display: block; color: #ccc; text-decoration: none; margin-bottom: 10px; font-size: 13px; transition: 0.3s; }
+        .footer-link:hover { color: var(--brand-accent-green); padding-left: 5px; }
+        
+        .clean-break-box {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .clean-break-box h5 { color: var(--brand-accent-green); margin-bottom: 10px; }
+        .clean-break-box p { font-size: 12px; line-height: 1.5; }
+
+        @media (max-width: 1000px) {
+            .hero-section { flex-direction: column; padding-top: 120px; text-align: center; }
+            .hero-bg-stage { width: 100%; height: 400px; top: auto; bottom: 0; clip-path: none; opacity: 0.1; }
+            .hero-container { flex-direction: column; }
+            .hero-content { padding-right: 0; margin-bottom: 40px; }
+            .calculator-wrapper { width: 100%; max-width: 450px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .partner-wrapper { flex-direction: column; }
+            .partner-img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="image_5.png" alt="SureDrive" class="logo-img">
+        </div>
+        <div class="nav-links">
+            <a href="#">How It Works</a>
+            <a href="#">Partner Network</a>
+            <a href="#">Security</a>
+        </div>
+        <div style="display:flex; align-items:center;">
+            <a href="#" class="btn-login-nav">LOG IN</a>
+            <a href="#" class="btn-join-nav">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-bg-stage"></div> <div class="hero-container">
+            <div class="hero-content">
+                <h1>The Smart Way to Pre-Pay Your Car Repairs.</h1>
+                <p>Avoid unexpected mechanic bills. Load SureBucks monthly and unlock exclusive discounts. No debt. No interest.</p>
+                
+                <div class="trust-pill-row">
+                    <div class="trust-pill"><i class="fas fa-check-circle"></i> CPA Compliant Service</div>
+                    <div class="trust-pill"><i class="fas fa-check-circle"></i> Digital Credits</div>
+                    <div class="trust-pill"><i class="fas fa-check-circle"></i> No Credit Checks</div>
+                </div>
+            </div>
+
+            <div class="calculator-wrapper">
+                <div class="calc-header">
+                    <h3>SureBucks Calculator</h3>
+                    <p>See how much you get for your money.</p>
+                </div>
+                <div class="calc-body">
+                    <label class="input-label">Target Repair Value (R)</label>
+                    <input type="number" class="input-field" placeholder="e.g. R 15,000">
+                    
+                    <div class="conversion-rate">
+                        <i class="fas fa-coins"></i> R1 = 1 SureBuck
+                    </div>
+
+                    <div class="calc-result">
+                        <div class="calc-result-sub">Equivalent SureBucks</div>
+                        <div class="calc-result-val">15,000 <span style="font-size:16px;">SureBucks</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="promo-banner">
+        <div class="promo-content">
+            <span class="promo-tag">Weekly Quest</span>
+            <span class="promo-text">Load 5,000 SureBucks this week & Unlock a 10% Repair Discount!</span>
+        </div>
+    </div>
+
+    <section class="section-std">
+        <div class="section-header">
+            <h2>Select Your Profile</h2>
+            <p>Choose the plan that fits your needs. Start with a SureBucks bonus and unlock perks as you go.</p>
+        </div>
+
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-head">
+                    <i class="fas fa-user plan-icon"></i>
+                    <h3 class="plan-title">Individual</h3>
+                    <div class="plan-sub">Single Vehicle</div>
+                    <div class="bonus-pill">+200 SureBucks Bonus</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-lock"></i> 
+                            <div>
+                                <span>Free Buff & Polish</span><br>
+                                <span class="locked-text">Unlocks at 3,000 SB</span>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-lock"></i> 
+                            <div>
+                                <span>1x Free Blend</span><br>
+                                <span class="locked-text">Unlocks at 5,000 SB</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="plan-btn">Select Plan</a>
+                </div>
+            </div>
+
+            <div class="plan-card featured">
+                <div class="plan-head">
+                    <i class="fas fa-users plan-icon"></i>
+                    <h3 class="plan-title">Family</h3>
+                    <div class="plan-sub">Multi-Vehicle</div>
+                    <div class="bonus-pill">+600 SureBucks Bonus</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-lock"></i> 
+                            <div>
+                                <span>2x Free Buff & Polish</span><br>
+                                <span class="locked-text">Unlocks at 5,000 SB</span>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-lock"></i> 
+                            <div>
+                                <span>2x Free Blends</span><br>
+                                <span class="locked-text">Unlocks at 8,000 SB</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="plan-btn">Select Plan</a>
+                </div>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-head">
+                    <i class="fas fa-building plan-icon"></i>
+                    <h3 class="plan-title">Fleet</h3>
+                    <div class="plan-sub">Business</div>
+                    <div class="bonus-pill">+800 SureBucks Bonus</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-lock"></i> 
+                            <div>
+                                <span>3x Free Buff & Polish</span><br>
+                                <span class="locked-text">Unlocks at 10,000 SB</span>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-lock"></i> 
+                            <div>
+                                <span>10x Free Blends</span><br>
+                                <span class="locked-text">Unlocks at 20,000 SB</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="plan-btn">Select Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partner-section">
+        <div class="partner-wrapper">
+            <div class="partner-img"></div>
+            <div class="partner-txt">
+                <span class="partner-badge">Official Repair Partner</span>
+                <h2 style="font-size:30px; color:var(--brand-navy); margin-bottom:20px;">International Panel Shop</h2>
+                <p style="color:#666; margin-bottom:20px; line-height:1.6;">
+                    We partner exclusively with International Panel Shop for major structural repairs and professional spray painting. 
+                    <strong>Note:</strong> A mandatory digital pre-inspection is conducted on every vehicle before work begins to ensure transparency and protect your asset.
+                </p>
+                <div style="display:flex; gap:15px;">
+                    <a href="#" style="color:var(--brand-accent-green); font-weight:700; text-decoration:none;">View Gallery &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div style="color:white; font-weight:800; font-size:20px; margin-bottom:20px;">SUREDRIVE</div>
+                <p style="font-size:13px; line-height:1.6;">
+                    The digital way to manage vehicle maintenance. Pre-pay, earn rewards, and keep your car on the road.
+                </p>
+                <div class="clean-break-box">
+                    <h5><i class="fas fa-coins"></i> SureBucks Policy</h5>
+                    <p>SureBucks are digital service tokens. Once purchased, they are non-refundable for cash but do not expire and are fully transferrable for services.</p>
+                </div>
+            </div>
+            
+            <div>
+                <div class="footer-head">Company</div>
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">How it Works</a>
+                <a href="#" class="footer-link">Contact Support</a>
+            </div>
+
+            <div>
+                <div class="footer-head">Legal</div>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Token Rules</a>
+            </div>
+
+            <div>
+                <div class="footer-head">Security</div>
+                <div style="font-size:13px; color:#ccc; margin-bottom:10px;">
+                    <i class="fas fa-lock" style="color:var(--brand-accent-green);"></i> SSL Encrypted
+                </div>
+                <div style="font-size:13px; color:#ccc; margin-bottom:20px;">
+                    <i class="fas fa-shield-alt" style="color:var(--brand-accent-green);"></i> POPIA Compliant
+                </div>
+                <div style="font-size:12px; color:#888;">
+                    Payments Powered by <strong style="color:white;">PayFast</strong> (Independent Merchant)
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; font-size:12px; color:#888; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+            &copy; 2025 SureDrive (Pty) Ltd. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
