@@ -3,26 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SureDrive: The smart, CPA-compliant way to pre-pay for vehicle repairs. Secure digital service credits for panel beating and mechanical repairs.">
+    <meta name="robots" content="index, follow">
     <title>SureDrive | Your Car. Your Pace. Secured.</title>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "SureDrive",
+      "image": "https://www.suredrive.co.za/assets/logo.png",
+      "description": "Pre-paid vehicle maintenance and repair service platform.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cape Town",
+        "addressRegion": "Western Cape",
+        "addressCountry": "ZA"
+      },
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 08:00-17:00",
+      "sameAs": [
+        "https://www.facebook.com/suredrive",
+        "https://www.instagram.com/suredrive"
+      ]
+    }
+    </script>
+
     <style>
-        /* --- REVISED PALETTE (Santam-inspired Navy & Gold with Professional Green) --- */
+        /* --- BRAND VARIABLES (Santam Navy x OUTsurance Green) --- */
         :root {
-            --brand-navy: #002855; /* Deep Santam-like Navy */
-            --brand-accent-green: #4CAF50; /* Professional Green */
-            --brand-gold: #FFC107; /* Santam-like Gold highlight */
-            --surface-light: #f4f4f4;
+            --brand-navy: #002855; 
+            --brand-green: #76c720; 
+            --brand-green-hover: #65ab1b;
+            --brand-gold: #FFC107;
+            --surface-light: #f4f6f8;
             --white: #ffffff;
-            --text-dark: #333333;
-            --text-gray: #666666;
-            --border-color: #e0e0e0;
+            --text-dark: #2d3748;
+            --text-gray: #718096;
+            --border-color: #e2e8f0;
+            --wallet-bg: #f0fff4;
+            --wallet-text: #2f855a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
         body { background-color: var(--white); color: var(--text-dark); overflow-x: hidden; }
 
-        /* --- HEADER --- */
+        /* --- NAVIGATION --- */
         nav {
             background-color: var(--white);
             height: 90px;
@@ -30,16 +59,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 8%;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
         }
 
-        .logo-img { height: 55px; width: auto; }
+        .logo-img { height: 60px; width: auto; object-fit: contain; }
 
-        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links { display: flex; gap: 35px; align-items: center; }
         .nav-links a { 
             color: var(--text-dark); 
             text-decoration: none; 
@@ -49,13 +78,13 @@
             letter-spacing: 0.5px;
             transition: 0.3s; 
         }
-        .nav-links a:hover { color: var(--brand-accent-green); }
+        .nav-links a:hover { color: var(--brand-green); }
 
         .btn-login-nav { 
             color: var(--brand-navy); 
             font-weight: 700; 
             text-decoration: none; 
-            margin-right: 20px;
+            margin-right: 25px;
             font-size: 14px;
         }
         
@@ -71,15 +100,15 @@
             letter-spacing: 1px;
             transition: 0.3s; 
         }
-        .btn-join-nav:hover { background-color: #001a3a; }
+        .btn-join-nav:hover { background-color: #001a3a; box-shadow: 0 5px 15px rgba(0,40,85,0.3); }
 
         /* --- HERO SECTION --- */
         .hero-section {
             position: relative;
             padding-top: 140px;
-            padding-bottom: 80px;
+            padding-bottom: 100px;
             background-color: var(--surface-light);
-            min-height: 700px;
+            min-height: 750px;
             display: flex;
             justify-content: center;
         }
@@ -90,7 +119,8 @@
             right: 0;
             width: 60%;
             height: 100%;
-            background-image: url('image_7.png'); /* Using the banner from the user request */
+            /* Make sure to put your image in an 'assets' folder */
+            background-image: url('assets/hero.jpg'); 
             background-size: cover;
             background-position: center;
             clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
@@ -112,18 +142,18 @@
         }
 
         .hero-content h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
             color: var(--brand-navy);
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .hero-content p {
-            font-size: 18px;
+            font-size: 20px;
             color: var(--text-gray);
-            margin-bottom: 30px;
-            max-width: 450px;
+            margin-bottom: 35px;
+            max-width: 480px;
             line-height: 1.6;
         }
 
@@ -131,34 +161,34 @@
         .trust-pill {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: white;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 50px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--brand-navy);
         }
-        .trust-pill i { color: var(--brand-accent-green); }
+        .trust-pill i { color: var(--brand-green); }
 
-        /* --- CALCULATOR WIDGET (CLEANED UP) --- */
+        /* --- CALCULATOR WIDGET --- */
         .calculator-wrapper {
-            flex: 0 0 400px;
+            flex: 0 0 420px;
             background: var(--white);
             padding: 0;
             border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
             overflow: hidden;
-            border-top: 5px solid var(--brand-gold); /* Santam-like gold strip */
+            border-top: 6px solid var(--brand-gold);
         }
 
         .calc-header {
-            padding: 25px 30px;
+            padding: 30px;
             border-bottom: 1px solid var(--border-color);
         }
-        .calc-header h3 { font-size: 20px; font-weight: 800; color: var(--brand-navy); }
-        .calc-header p { font-size: 13px; color: #888; margin-top: 5px; }
+        .calc-header h3 { font-size: 22px; font-weight: 800; color: var(--brand-navy); }
+        .calc-header p { font-size: 14px; color: #888; margin-top: 5px; }
 
         .calc-body { padding: 30px; }
 
@@ -167,17 +197,17 @@
             font-size: 13px;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
         .input-field {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ccc;
+            padding: 15px;
+            border: 1px solid #cbd5e0;
             border-radius: 4px;
             font-size: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             background: #fdfdfd;
             transition: 0.3s;
         }
@@ -185,28 +215,29 @@
 
         .calc-result {
             background: var(--surface-light);
-            padding: 15px;
-            border-radius: 4px;
+            padding: 20px;
+            border-radius: 6px;
             text-align: center;
             margin-bottom: 25px;
-            border: 1px dashed #ccc;
+            border: 1px dashed #cbd5e0;
         }
-        .calc-result-val { font-size: 28px; font-weight: 800; color: var(--brand-navy); }
-        .calc-result-sub { font-size: 12px; color: #666; }
+        .calc-result-val { font-size: 32px; font-weight: 800; color: var(--brand-navy); }
+        .calc-result-sub { font-size: 13px; color: #666; margin-bottom: 5px; }
         
         .conversion-rate {
             text-align: center;
             font-weight: 700;
-            color: var(--brand-accent-green);
+            color: var(--brand-green);
             margin-bottom: 20px;
             font-size: 14px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
 
         /* --- PROMO BANNER --- */
         .promo-banner {
             background-color: var(--brand-navy);
             color: white;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -217,60 +248,61 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
             background-size: 200% 200%;
-            animation: shine 3s infinite;
+            animation: shine 4s infinite;
         }
         @keyframes shine { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         
         .promo-content { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 20px; }
-        .promo-tag { background: var(--brand-gold); color: var(--brand-navy); padding: 5px 10px; font-weight: 800; font-size: 12px; border-radius: 3px; text-transform: uppercase; }
-        .promo-text { font-weight: 700; font-size: 16px; }
+        .promo-tag { background: var(--brand-gold); color: var(--brand-navy); padding: 6px 12px; font-weight: 800; font-size: 13px; border-radius: 4px; text-transform: uppercase; }
+        .promo-text { font-weight: 700; font-size: 18px; }
 
-        /* --- GRID SECTIONS --- */
-        .section-std { padding: 80px 8%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 32px; font-weight: 800; color: var(--brand-navy); margin-bottom: 15px; }
-        .section-header p { font-size: 16px; color: var(--text-gray); max-width: 600px; margin: 0 auto; }
+        /* --- PLANS GRID --- */
+        .section-std { padding: 100px 8%; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; color: var(--brand-navy); margin-bottom: 15px; }
+        .section-header p { font-size: 18px; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
 
-        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
         .plan-card {
             background: white;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             transition: 0.3s;
             position: relative;
+            display: flex; flex-direction: column;
         }
-        .plan-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: var(--brand-accent-green); }
-        .plan-card.featured { border-top: 5px solid var(--brand-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .plan-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: var(--brand-green); }
+        .plan-card.featured { border-top: 6px solid var(--brand-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
 
-        .plan-head { padding: 30px; background: #fdfdfd; border-bottom: 1px solid var(--border-color); }
-        .plan-icon { font-size: 32px; color: var(--brand-navy); margin-bottom: 15px; }
-        .plan-title { font-size: 22px; font-weight: 800; color: var(--text-dark); }
-        .plan-sub { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
+        .plan-head { padding: 35px 30px 25px; background: #fff; border-bottom: 1px solid var(--surface-light); }
+        .plan-icon { font-size: 36px; color: var(--brand-navy); margin-bottom: 15px; }
+        .plan-title { font-size: 26px; font-weight: 800; color: var(--text-dark); }
+        .plan-sub { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
 
         .bonus-pill {
-            background: var(--brand-accent-green);
+            background: var(--brand-green);
             color: white;
             display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 13px;
             font-weight: 800;
             margin-top: 15px;
         }
 
-        .plan-body { padding: 30px; }
+        .plan-body { padding: 30px; flex-grow: 1; }
         .feature-list { list-style: none; }
-        .feature-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 14px; color: var(--text-dark); }
-        .feature-item i { color: #ccc; margin-top: 3px; }
-        .feature-item i.active { color: var(--brand-accent-green); }
-        .locked-text { color: #999; font-size: 12px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; font-size: 15px; color: var(--text-dark); }
+        .feature-item i { color: #ccc; margin-top: 4px; }
+        .feature-item i.active { color: var(--brand-green); }
+        .locked-text { color: #999; font-size: 13px; display:block; margin-top: 3px;}
 
         .plan-btn {
             display: block;
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             border: 2px solid var(--brand-navy);
             color: var(--brand-navy);
             text-align: center;
@@ -278,42 +310,48 @@
             text-decoration: none;
             border-radius: 4px;
             transition: 0.3s;
-            margin-top: 20px;
+            margin-top: 25px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
         .plan-card:hover .plan-btn { background: var(--brand-navy); color: white; }
 
         /* --- PARTNER SECTION --- */
-        .partner-section { background: var(--surface-light); padding: 80px 8%; }
-        .partner-wrapper { display: flex; gap: 50px; align-items: center; background: white; padding: 50px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .partner-img { flex: 1; height: 300px; background: url('https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000') center/cover; border-radius: 4px; }
+        .partner-section { background: var(--surface-light); padding: 100px 8%; }
+        .partner-wrapper { display: flex; gap: 60px; align-items: center; background: white; padding: 60px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        .partner-img { flex: 1; height: 350px; background: url('https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000') center/cover; border-radius: 6px; }
         .partner-txt { flex: 1; }
-        .partner-badge { color: var(--brand-accent-green); font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+        .partner-badge { color: var(--brand-green); font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; margin-bottom: 15px; display: block; }
         
         /* --- FOOTER --- */
-        footer { background-color: var(--brand-navy); color: #ccc; padding: 70px 8% 30px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
-        .footer-head { color: white; font-weight: 700; margin-bottom: 20px; font-size: 15px; text-transform: uppercase; }
-        .footer-link { display: block; color: #ccc; text-decoration: none; margin-bottom: 10px; font-size: 13px; transition: 0.3s; }
-        .footer-link:hover { color: var(--brand-accent-green); padding-left: 5px; }
+        footer { background-color: var(--brand-navy); color: #cbd5e0; padding: 80px 8% 40px; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
+        .footer-head { color: white; font-weight: 700; margin-bottom: 25px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-link { display: block; color: #cbd5e0; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
+        .footer-link:hover { color: var(--brand-green); padding-left: 5px; }
         
         .clean-break-box {
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 6px;
+            margin-top: 25px;
+            background: rgba(255,255,255,0.05);
         }
-        .clean-break-box h5 { color: var(--brand-accent-green); margin-bottom: 10px; }
-        .clean-break-box p { font-size: 12px; line-height: 1.5; }
+        .clean-break-box h5 { color: var(--brand-green); margin-bottom: 10px; font-size: 14px; display:flex; align-items:center; gap:8px;}
+        .clean-break-box p { font-size: 13px; line-height: 1.6; opacity: 0.8; }
 
+        /* Mobile Responsive */
         @media (max-width: 1000px) {
             .hero-section { flex-direction: column; padding-top: 120px; text-align: center; }
-            .hero-bg-stage { width: 100%; height: 400px; top: auto; bottom: 0; clip-path: none; opacity: 0.1; }
+            .hero-bg-stage { width: 100%; height: 400px; top: auto; bottom: 0; clip-path: none; opacity: 0.15; }
             .hero-container { flex-direction: column; }
-            .hero-content { padding-right: 0; margin-bottom: 40px; }
-            .calculator-wrapper { width: 100%; max-width: 450px; }
-            .footer-grid { grid-template-columns: 1fr; }
+            .hero-content { padding-right: 0; margin-bottom: 50px; }
+            .calculator-wrapper { width: 100%; max-width: 480px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .partner-wrapper { flex-direction: column; }
-            .partner-img { width: 100%; }
+            .partner-img { width: 100%; height: 250px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -321,7 +359,7 @@
 
     <nav>
         <div class="logo-container">
-            <img src="image_5.png" alt="SureDrive" class="logo-img">
+            <img src="assets/logo.png" alt="SureDrive" class="logo-img">
         </div>
         <div class="nav-links">
             <a href="#">How It Works</a>
@@ -335,7 +373,9 @@
     </nav>
 
     <section class="hero-section">
-        <div class="hero-bg-stage"></div> <div class="hero-container">
+        <div class="hero-bg-stage"></div> 
+        
+        <div class="hero-container">
             <div class="hero-content">
                 <h1>The Smart Way to Pre-Pay Your Car Repairs.</h1>
                 <p>Avoid unexpected mechanic bills. Load SureBucks monthly and unlock exclusive discounts. No debt. No interest.</p>
@@ -350,7 +390,7 @@
             <div class="calculator-wrapper">
                 <div class="calc-header">
                     <h3>SureBucks Calculator</h3>
-                    <p>See how much you get for your money.</p>
+                    <p>Calculate your service credits.</p>
                 </div>
                 <div class="calc-body">
                     <label class="input-label">Target Repair Value (R)</label>
@@ -361,9 +401,11 @@
                     </div>
 
                     <div class="calc-result">
-                        <div class="calc-result-sub">Equivalent SureBucks</div>
+                        <div class="calc-result-sub">Equivalent Credits</div>
                         <div class="calc-result-val">15,000 <span style="font-size:16px;">SureBucks</span></div>
                     </div>
+                    
+                    <a href="#" class="btn-calc" style="background-color:var(--brand-green); color:white; display:block; text-align:center; padding:15px; border-radius:4px; font-weight:800; text-decoration:none;">START LOADING NOW</a>
                 </div>
             </div>
         </div>
@@ -398,14 +440,14 @@
                         <li class="feature-item">
                             <i class="fas fa-lock"></i> 
                             <div>
-                                <span>Free Buff & Polish</span><br>
+                                <span>Free Buff & Polish</span>
                                 <span class="locked-text">Unlocks at 3,000 SB</span>
                             </div>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-lock"></i> 
                             <div>
-                                <span>1x Free Blend</span><br>
+                                <span>1x Free Blend</span>
                                 <span class="locked-text">Unlocks at 5,000 SB</span>
                             </div>
                         </li>
@@ -429,14 +471,14 @@
                         <li class="feature-item">
                             <i class="fas fa-lock"></i> 
                             <div>
-                                <span>2x Free Buff & Polish</span><br>
+                                <span>2x Free Buff & Polish</span>
                                 <span class="locked-text">Unlocks at 5,000 SB</span>
                             </div>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-lock"></i> 
                             <div>
-                                <span>2x Free Blends</span><br>
+                                <span>2x Free Blends</span>
                                 <span class="locked-text">Unlocks at 8,000 SB</span>
                             </div>
                         </li>
@@ -460,14 +502,14 @@
                         <li class="feature-item">
                             <i class="fas fa-lock"></i> 
                             <div>
-                                <span>3x Free Buff & Polish</span><br>
+                                <span>3x Free Buff & Polish</span>
                                 <span class="locked-text">Unlocks at 10,000 SB</span>
                             </div>
                         </li>
                         <li class="feature-item">
                             <i class="fas fa-lock"></i> 
                             <div>
-                                <span>10x Free Blends</span><br>
+                                <span>10x Free Blends</span>
                                 <span class="locked-text">Unlocks at 20,000 SB</span>
                             </div>
                         </li>
@@ -489,7 +531,7 @@
                     <strong>Note:</strong> A mandatory digital pre-inspection is conducted on every vehicle before work begins to ensure transparency and protect your asset.
                 </p>
                 <div style="display:flex; gap:15px;">
-                    <a href="#" style="color:var(--brand-accent-green); font-weight:700; text-decoration:none;">View Gallery &rarr;</a>
+                    <a href="#" style="color:var(--brand-green); font-weight:700; text-decoration:none;">View Gallery &rarr;</a>
                 </div>
             </div>
         </div>
@@ -498,7 +540,7 @@
     <footer>
         <div class="footer-grid">
             <div>
-                <div style="color:white; font-weight:800; font-size:20px; margin-bottom:20px;">SUREDRIVE</div>
+                <div style="color:white; font-weight:800; font-size:22px; margin-bottom:20px;">SUREDRIVE</div>
                 <p style="font-size:13px; line-height:1.6;">
                     The digital way to manage vehicle maintenance. Pre-pay, earn rewards, and keep your car on the road.
                 </p>
@@ -525,10 +567,10 @@
             <div>
                 <div class="footer-head">Security</div>
                 <div style="font-size:13px; color:#ccc; margin-bottom:10px;">
-                    <i class="fas fa-lock" style="color:var(--brand-accent-green);"></i> SSL Encrypted
+                    <i class="fas fa-lock" style="color:var(--brand-green);"></i> SSL Encrypted
                 </div>
                 <div style="font-size:13px; color:#ccc; margin-bottom:20px;">
-                    <i class="fas fa-shield-alt" style="color:var(--brand-accent-green);"></i> POPIA Compliant
+                    <i class="fas fa-shield-alt" style="color:var(--brand-green);"></i> POPIA Compliant
                 </div>
                 <div style="font-size:12px; color:#888;">
                     Payments Powered by <strong style="color:white;">PayFast</strong> (Independent Merchant)
