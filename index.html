@@ -62,10 +62,8 @@
             z-index: 1000;
         }
 
-        /* Left side empty for spacing */
-        .nav-left { }
+        .nav-left { } /* Spacer */
 
-        /* Center Logo */
         .logo-container { 
             display: flex; 
             justify-content: center;
@@ -80,7 +78,6 @@
             filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
         }
 
-        /* Right Side Buttons */
         .nav-buttons { 
             display: flex; 
             justify-content: flex-end; 
@@ -109,7 +106,7 @@
         }
         .btn-join-nav:hover { background-color: #001a3a; box-shadow: 0 5px 15px rgba(0,40,85,0.3); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (ROTATING BANNER) --- */
         .hero-section {
             position: relative;
             padding-top: 100px;
@@ -120,18 +117,39 @@
             overflow: hidden;
         }
 
-        .hero-bg-stage {
+        /* Slideshow Container */
+        .hero-slideshow {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/hero.jpg'); 
+            z-index: 0;
+        }
+
+        /* Individual Slide */
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            z-index: 0;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 1s ease-in-out; /* Smooth fade transition */
         }
+        
+        /* Active Slide (Visible) */
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        /* Slide Backgrounds + Dark Overlay */
+        .slide-1 { background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/hero.jpg'); }
+        .slide-2 { background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/heros.jpg'); }
+        .slide-3 { background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/fleet.jpg'); }
 
         .hero-content {
             position: relative;
@@ -158,12 +176,12 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
 
-        /* Updated to Blue Button Style (No Green Glow) */
+        /* Blue Button Style */
         .hero-btn {
             background-color: var(--brand-navy);
             color: white;
             padding: 18px 45px;
-            border-radius: 4px; /* Matches Nav Button style */
+            border-radius: 4px;
             font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
@@ -189,44 +207,11 @@
             box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
         }
 
-        .steps-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .step-item {
-            flex: 1;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .step-icon {
-            background: var(--surface-light);
-            color: var(--brand-navy);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .step-text h3 {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--brand-navy);
-            margin-bottom: 8px;
-        }
-
-        .step-text p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.5;
-        }
+        .steps-grid { display: flex; justify-content: space-between; gap: 40px; }
+        .step-item { flex: 1; display: flex; align-items: flex-start; gap: 20px; }
+        .step-icon { background: var(--surface-light); color: var(--brand-navy); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; flex-shrink: 0; }
+        .step-text h3 { font-size: 18px; font-weight: 800; color: var(--brand-navy); margin-bottom: 8px; }
+        .step-text p { font-size: 14px; color: var(--text-gray); line-height: 1.5; }
 
         /* --- ID FEATURE SECTION --- */
         .id-feature-section {
@@ -246,47 +231,17 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             position: relative;
         }
-        .id-card-visual::after {
-            content: 'SUREDRIVE MEMBER';
-            position: absolute; top: 15px; right: 20px; font-size: 10px; opacity: 0.7; letter-spacing: 1px;
-        }
+        .id-card-visual::after { content: 'SUREDRIVE MEMBER'; position: absolute; top: 15px; right: 20px; font-size: 10px; opacity: 0.7; letter-spacing: 1px; }
         .id-number { font-family: monospace; font-size: 24px; letter-spacing: 2px; margin: 20px 0; display:block; text-align:center; background:rgba(0,0,0,0.2); padding:10px; border-radius:4px; }
         
         .trust-pill-row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .trust-pill {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: white;
-            padding: 8px 15px;
-            border-radius: 50px;
-            border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--brand-navy);
-        }
+        .trust-pill { display: flex; align-items: center; gap: 8px; background: white; padding: 8px 15px; border-radius: 50px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 12px; font-weight: 700; color: var(--brand-navy); }
         .trust-pill i { color: var(--brand-green); }
 
         /* --- PROMO BANNER --- */
-        .promo-banner {
-            background-color: var(--brand-navy);
-            color: white;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .promo-banner::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
-            background-size: 200% 200%;
-            animation: shine 4s infinite;
-        }
+        .promo-banner { background-color: var(--brand-navy); color: white; padding: 25px; text-align: center; position: relative; overflow: hidden; }
+        .promo-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%); background-size: 200% 200%; animation: shine 4s infinite; }
         @keyframes shine { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        
         .promo-content { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 20px; }
         .promo-tag { background: var(--brand-gold); color: var(--brand-navy); padding: 6px 12px; font-weight: 800; font-size: 13px; border-radius: 4px; text-transform: uppercase; }
         .promo-text { font-weight: 700; font-size: 18px; }
@@ -296,101 +251,34 @@
         .section-header { text-align: center; margin-bottom: 70px; }
         .section-header h2 { font-size: 36px; font-weight: 800; color: var(--brand-navy); margin-bottom: 15px; }
         .section-header p { font-size: 18px; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
-
         .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        
-        .plan-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: 0.3s;
-            position: relative;
-            display: flex; flex-direction: column;
-        }
+        .plan-card { background: white; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
         .plan-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: var(--brand-green); }
         .plan-card.featured { border-top: 6px solid var(--brand-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-
         .plan-head { padding: 35px 30px 25px; background: #fff; border-bottom: 1px solid var(--surface-light); }
         .plan-icon { font-size: 36px; color: var(--brand-navy); margin-bottom: 15px; }
         .plan-title { font-size: 26px; font-weight: 800; color: var(--text-dark); }
         .plan-sub { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
-
-        .bonus-pill {
-            background: var(--brand-green);
-            color: white;
-            display: inline-block;
-            padding: 6px 15px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 800;
-            margin-top: 15px;
-        }
-
+        .bonus-pill { background: var(--brand-green); color: white; display: inline-block; padding: 6px 15px; border-radius: 30px; font-size: 13px; font-weight: 800; margin-top: 15px; }
         .plan-body { padding: 30px; flex-grow: 1; }
         .feature-list { list-style: none; }
         .feature-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; font-size: 15px; color: var(--text-dark); }
         .feature-item i { color: #ccc; margin-top: 4px; }
         .feature-item i.active { color: var(--brand-green); }
         .locked-text { color: #999; font-size: 13px; display:block; margin-top: 3px;}
-
-        .plan-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            border: 2px solid var(--brand-navy);
-            color: var(--brand-navy);
-            text-align: center;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: 0.3s;
-            margin-top: 25px;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
+        .plan-btn { display: block; width: 100%; padding: 15px; border: 2px solid var(--brand-navy); color: var(--brand-navy); text-align: center; font-weight: 700; text-decoration: none; border-radius: 4px; transition: 0.3s; margin-top: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
         .plan-card:hover .plan-btn { background: var(--brand-navy); color: white; }
 
         /* --- PARTNER SECTION --- */
         .partner-section { background: white; padding: 100px 8%; border-top:1px solid #eee; }
         .partner-wrapper { display: flex; gap: 60px; align-items: center; background: white; padding: 0; }
-        .partner-img { 
-            flex: 1; 
-            height: 400px; 
-            background: url('assets/partner.jpg') center/cover; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
+        .partner-img { flex: 1; height: 400px; background: url('assets/partner.jpg') center/cover; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
         .partner-txt { flex: 1; }
         .partner-badge { color: var(--brand-green); font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; margin-bottom: 15px; display: block; }
-        
-        .service-list-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .service-item-full {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--brand-navy);
-        }
+        .service-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .service-item-full { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--brand-navy); }
         .service-item-full i { color: var(--brand-green); }
-
-        .partner-note {
-            font-size: 13px;
-            color: #777;
-            border-left: 3px solid var(--brand-gold);
-            padding-left: 10px;
-            margin-top: 20px;
-            margin-bottom: 25px;
-            background: #fff9e6;
-            padding: 10px;
-        }
+        .partner-note { font-size: 13px; color: #777; border-left: 3px solid var(--brand-gold); padding-left: 10px; margin-top: 20px; margin-bottom: 25px; background: #fff9e6; padding: 10px; }
 
         /* --- FOOTER --- */
         footer { background-color: var(--brand-navy); color: #cbd5e0; padding: 80px 8% 40px; font-size: 14px; }
@@ -398,18 +286,9 @@
         .footer-head { color: white; font-weight: 700; margin-bottom: 25px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
         .footer-link { display: block; color: #cbd5e0; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
         .footer-link:hover { color: var(--brand-green); padding-left: 5px; }
-        
-        .clean-break-box {
-            border: 1px solid rgba(255,255,255,0.15);
-            padding: 25px;
-            border-radius: 6px;
-            margin-top: 25px;
-            background: rgba(255,255,255,0.05);
-        }
+        .clean-break-box { border: 1px solid rgba(255,255,255,0.15); padding: 25px; border-radius: 6px; margin-top: 25px; background: rgba(255,255,255,0.05); }
         .clean-break-box h5 { color: var(--brand-green); margin-bottom: 10px; font-size: 14px; display:flex; align-items:center; gap:8px;}
         .clean-break-box p { font-size: 13px; line-height: 1.6; opacity: 0.8; }
-
-        /* Security Tech List Styles */
         .tech-item { margin-bottom: 15px; display:flex; gap:12px; }
         .tech-item i { color: var(--brand-green); margin-top:3px; font-size:14px; }
         .tech-title { color: white; font-weight:700; display:block; font-size:13px; }
@@ -435,10 +314,10 @@
 <body>
 
     <nav>
-        <div class="nav-left"></div> <a href="#" class="logo-container">
+        <div class="nav-left"></div>
+        <a href="#" class="logo-container">
             <img src="assets/logo.png" alt="SureDrive" class="logo-img">
         </a>
-
         <div class="nav-buttons">
             <a href="#" class="btn-login-nav">LOG IN</a>
             <a href="#" class="btn-join-nav">Get Started</a>
@@ -446,12 +325,15 @@
     </nav>
 
     <section class="hero-section">
-        <div class="hero-bg-stage"></div> 
+        <div class="hero-slideshow">
+            <div class="hero-slide slide-1 active"></div>
+            <div class="hero-slide slide-2"></div>
+            <div class="hero-slide slide-3"></div>
+        </div>
         
         <div class="hero-content">
             <h1>Pre-Pay Your Repairs.<br>Protect Your Asset.</h1>
             <p>Avoid unexpected automotive bills. Convert cash into secure SureBucks, lock in repair quality, and drive stress-free.</p>
-            
             <a href="#how-it-works" class="hero-btn">See How It Works</a>
         </div>
     </section>
@@ -513,7 +395,6 @@
             <h2>Select Your Profile</h2>
             <p>Choose the plan that fits your needs. Start with a SureBucks bonus and unlock perks as you go.</p>
         </div>
-
         <div class="plans-grid">
             <div class="plan-card">
                 <div class="plan-head">
@@ -524,28 +405,13 @@
                 </div>
                 <div class="plan-body">
                     <ul class="feature-list">
-                        <li class="feature-item">
-                            <i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="fas fa-lock"></i> 
-                            <div>
-                                <span>Free Buff & Polish</span><br>
-                                <span class="locked-text">Unlocks at 3,000 SB</span>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <i class="fas fa-lock"></i> 
-                            <div>
-                                <span>1x Free Blend</span><br>
-                                <span class="locked-text">Unlocks at 5,000 SB</span>
-                            </div>
-                        </li>
+                        <li class="feature-item"><i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>Free Buff & Polish</span><br><span class="locked-text">Unlocks at 3,000 SB</span></div></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>1x Free Blend</span><br><span class="locked-text">Unlocks at 5,000 SB</span></div></li>
                     </ul>
                     <a href="#" class="plan-btn">Select Plan</a>
                 </div>
             </div>
-
             <div class="plan-card featured">
                 <div class="plan-head">
                     <i class="fas fa-users plan-icon"></i>
@@ -555,28 +421,13 @@
                 </div>
                 <div class="plan-body">
                     <ul class="feature-list">
-                        <li class="feature-item">
-                            <i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="fas fa-lock"></i> 
-                            <div>
-                                <span>2x Free Buff & Polish</span><br>
-                                <span class="locked-text">Unlocks at 5,000 SB</span>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <i class="fas fa-lock"></i> 
-                            <div>
-                                <span>2x Free Blends</span><br>
-                                <span class="locked-text">Unlocks at 8,000 SB</span>
-                            </div>
-                        </li>
+                        <li class="feature-item"><i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>2x Free Buff & Polish</span><br><span class="locked-text">Unlocks at 5,000 SB</span></div></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>2x Free Blends</span><br><span class="locked-text">Unlocks at 8,000 SB</span></div></li>
                     </ul>
                     <a href="#" class="plan-btn">Select Plan</a>
                 </div>
             </div>
-
             <div class="plan-card">
                 <div class="plan-head">
                     <i class="fas fa-building plan-icon"></i>
@@ -586,23 +437,9 @@
                 </div>
                 <div class="plan-body">
                     <ul class="feature-list">
-                        <li class="feature-item">
-                            <i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="fas fa-lock"></i> 
-                            <div>
-                                <span>3x Free Buff & Polish</span><br>
-                                <span class="locked-text">Unlocks at 10,000 SB</span>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <i class="fas fa-lock"></i> 
-                            <div>
-                                <span>10x Free Blends</span><br>
-                                <span class="locked-text">Unlocks at 20,000 SB</span>
-                            </div>
-                        </li>
+                        <li class="feature-item"><i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>3x Free Buff & Polish</span><br><span class="locked-text">Unlocks at 10,000 SB</span></div></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>10x Free Blends</span><br><span class="locked-text">Unlocks at 20,000 SB</span></div></li>
                     </ul>
                     <a href="#" class="plan-btn">Select Plan</a>
                 </div>
@@ -620,7 +457,6 @@
                     We partner exclusively with International Panel Shop for major structural repairs and professional spray painting. 
                     <strong>Note:</strong> A mandatory digital pre-inspection is conducted on every vehicle before work begins.
                 </p>
-                
                 <div class="service-list-grid">
                     <div class="service-item-full"><i class="fas fa-car-crash"></i> Accident Repairs</div>
                     <div class="service-item-full"><i class="fas fa-hammer"></i> Panel Beating</div>
@@ -629,11 +465,9 @@
                     <div class="service-item-full"><i class="fas fa-chair"></i> Upholstery</div>
                     <div class="service-item-full"><i class="fas fa-glass-whiskey"></i> Glasswork</div>
                 </div>
-
                 <div class="partner-note">
                     <i class="fas fa-map-marker-alt" style="color:var(--brand-green);"></i> <strong>Key Note:</strong> Only available in Cape Town at present.
                 </div>
-
                 <div style="display:flex; gap:15px;">
                     <a href="https://www.intpanelshop.co.za" target="_blank" class="hero-btn" style="padding:12px 25px; font-size:14px;">View Site</a>
                 </div>
@@ -645,73 +479,55 @@
         <div class="footer-grid">
             <div>
                 <div style="color:white; font-weight:800; font-size:22px; margin-bottom:20px;">SUREDRIVE</div>
-                <p style="font-size:13px; line-height:1.6;">
-                    The digital way to manage vehicle maintenance. Pre-pay, earn rewards, and keep your car on the road.
-                </p>
+                <p style="font-size:13px; line-height:1.6;">The digital way to manage vehicle maintenance. Pre-pay, earn rewards, and keep your car on the road.</p>
                 <div class="clean-break-box">
                     <h5><i class="fas fa-coins"></i> SureBucks Policy</h5>
                     <p>SureBucks are digital service tokens. Once purchased, they are non-refundable for cash but do not expire and are fully transferrable for services.</p>
                 </div>
             </div>
-            
             <div>
                 <div class="footer-head">Company</div>
                 <a href="#" class="footer-link">About Us</a>
                 <a href="#" class="footer-link">How it Works</a>
                 <a href="#" class="footer-link">Contact Support</a>
             </div>
-
             <div>
                 <div class="footer-head">Legal</div>
                 <a href="#" class="footer-link">Terms of Service</a>
                 <a href="#" class="footer-link">Privacy Policy</a>
                 <a href="#" class="footer-link">Token Rules</a>
             </div>
-
             <div>
                 <div class="footer-head">Data Infrastructure</div>
-                
-                <div class="tech-item">
-                    <i class="fas fa-server"></i>
-                    <div>
-                        <span class="tech-title">Google Cloud & Firebase</span>
-                        <span class="tech-desc">Bank-Grade Cloud Hosting</span>
-                    </div>
-                </div>
-
-                <div class="tech-item">
-                    <i class="fas fa-network-wired"></i>
-                    <div>
-                        <span class="tech-title">Tailscale Encrypted</span>
-                        <span class="tech-desc">Secure Mesh Network</span>
-                    </div>
-                </div>
-
-                <div class="tech-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <span class="tech-title">Honeypot Active</span>
-                        <span class="tech-desc">Anti-Spam Protection</span>
-                    </div>
-                </div>
-
-                <div class="tech-item" style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
-                    <i class="fas fa-share-alt" style="color:#aaa;"></i>
-                    <div>
-                        <span class="tech-title" style="color:#ccc;">Data Shared Only With:</span>
-                        <span class="tech-desc" style="color:white; font-weight:700;">International Panel Shop</span>
-                    </div>
-                </div>
-
-                <div style="font-size:12px; color:#888; margin-top:20px;">
-                    <i class="fas fa-check-circle" style="color:var(--brand-green);"></i> POPIA Aligned Standards
-                </div>
+                <div class="tech-item"><i class="fas fa-server"></i><div><span class="tech-title">Google Cloud & Firebase</span><span class="tech-desc">Bank-Grade Cloud Hosting</span></div></div>
+                <div class="tech-item"><i class="fas fa-network-wired"></i><div><span class="tech-title">Tailscale Encrypted</span><span class="tech-desc">Secure Mesh Network</span></div></div>
+                <div class="tech-item"><i class="fas fa-shield-alt"></i><div><span class="tech-title">Honeypot Active</span><span class="tech-desc">Anti-Spam Protection</span></div></div>
+                <div class="tech-item" style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;"><i class="fas fa-share-alt" style="color:#aaa;"></i><div><span class="tech-title" style="color:#ccc;">Data Shared Only With:</span><span class="tech-desc" style="color:white; font-weight:700;">International Panel Shop</span></div></div>
+                <div style="font-size:12px; color:#888; margin-top:20px;"><i class="fas fa-check-circle" style="color:var(--brand-green);"></i> POPIA Aligned Standards</div>
             </div>
         </div>
-        <div style="text-align:center; font-size:12px; color:#888; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
-            &copy; 2025 SureDrive (Pty) Ltd. All rights reserved.
-        </div>
+        <div style="text-align:center; font-size:12px; color:#888; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">&copy; 2025 SureDrive (Pty) Ltd. All rights reserved.</div>
     </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+
+        function rotateSlides() {
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+            
+            // Move to next slide index (loop back to 0 if at end)
+            currentSlide = (currentSlide + 1) % totalSlides;
+            
+            // Add active class to new slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 5 seconds (5000ms)
+        setInterval(rotateSlides, 5000);
+    </script>
 
 </body>
 </html>
