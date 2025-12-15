@@ -15,7 +15,7 @@
       "@context": "https://schema.org",
       "@type": "AutoRepair",
       "name": "SureDrive",
-      "logo": "https://www.suredrive.co.za/assets/logo.png",
+      "image": "https://www.suredrive.co.za/assets/logo.png",
       "description": "Pre-paid vehicle maintenance and repair service platform.",
       "address": {
         "@type": "PostalAddress",
@@ -50,7 +50,7 @@
         /* --- NAVIGATION (TRANSPARENT & LEFT ALIGNED LOGO) --- */
         nav {
             background-color: transparent;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%); /* Slight gradient for readability */
             height: 100px;
             display: grid;
             grid-template-columns: auto 1fr; /* Logo on left, rest of space on right */
@@ -64,24 +64,26 @@
             transition: background-color 0.3s;
         }
 
-        /* Logo Container */
+        /* Logo Container - Left aligned */
         .logo-container { 
             display: flex; 
             align-items: center;
             text-decoration: none; 
-            /* Let it hang down slightly for impact */
-            margin-top: 15px; 
         }
         
-        /* SVG LOGO STYLING */
-        .logo-svg { 
-            height: 120px; /* Big Size to steal the eye */
-            width: 120px;
-            /* Drop shadow to make the Navy Blue body pop against dark backgrounds */
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.8)) drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+        /* Logo Image - BIGGER, NO BG, STEAL THE EYE */
+        .logo-img { 
+            height: 120px; /* Significantly larger */
+            width: auto; 
+            object-fit: contain; 
+            /* Removed background and border */
+            /* Added a subtle light glow so the dark logo stands out until you upload the blue/yellow one */
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
             transition: transform 0.3s;
+            margin-top: 15px; /* Let it hang down */
         }
-        .logo-svg:hover { transform: scale(1.05); }
+        .logo-img:hover { transform: scale(1.05); }
+
 
         /* Buttons - Right Aligned */
         .nav-buttons { 
@@ -150,7 +152,7 @@
         
         .hero-slide.active { opacity: 1; }
 
-        /* Slide Images */
+        /* Gradient adjusted for white text readability */
         .slide-1 { background-image: linear-gradient(rgba(0, 20, 50, 0.4), rgba(0, 20, 50, 0.6)), url('assets/hero.jpg'); }
         .slide-2 { background-image: linear-gradient(rgba(0, 20, 50, 0.4), rgba(0, 20, 50, 0.6)), url('assets/heros.jpg'); }
         .slide-3 { background-image: linear-gradient(rgba(0, 20, 50, 0.4), rgba(0, 20, 50, 0.6)), url('assets/fleet.jpg'); }
@@ -161,7 +163,7 @@
             text-align: center;
             max-width: 800px;
             padding: 0 20px;
-            margin-top: 50px; 
+            margin-top: 50px; /* Slight push to clear the big logo */
         }
 
         .hero-content h1 {
@@ -334,11 +336,7 @@
 
     <nav>
         <a href="#" class="logo-container">
-            <svg class="logo-img logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25 85 C 25 50, 65 60, 65 30 L 85 10" stroke="#002855" stroke-width="22" stroke-linecap="round"/>
-                <path d="M25 85 C 25 50, 65 60, 65 30" stroke="#FFC107" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6"/>
-                <path d="M65 10 L 85 10 L 85 30" stroke="#FFC107" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <img src="assets/logo.png" alt="SureDrive" class="logo-img">
         </a>
         <div class="nav-buttons">
             <a href="#" class="btn-login-nav">LOG IN</a>
