@@ -47,12 +47,13 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
         body { background-color: var(--white); color: var(--text-dark); overflow-x: hidden; }
 
-        /* --- NAVIGATION (CENTERED LOGO) --- */
+        /* --- NAVIGATION (TRANSLUCENT GLASS) --- */
         nav {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.85); /* 85% opacity */
+            backdrop-filter: blur(10px); /* The "Glass" Blur Effect */
             height: 100px;
             display: grid;
-            grid-template-columns: 1fr auto 1fr; /* 3-column grid to center logo perfectly */
+            grid-template-columns: 1fr auto 1fr; 
             align-items: center;
             padding: 0 5%;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -60,10 +61,12 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background-color 0.3s;
         }
 
-        .nav-left { } /* Spacer */
+        .nav-left { }
 
+        /* Center Logo */
         .logo-container { 
             display: flex; 
             justify-content: center;
@@ -73,11 +76,15 @@
         
         .logo-img { 
             height: 70px; 
-            width: auto; 
-            object-fit: contain;
-            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+            width: 70px; /* Forced width for perfect circle */
+            object-fit: contain; /* Ensures logo fits inside */
+            background-color: white; /* Ensures white bg inside circle */
+            border-radius: 50%; /* MAKES IT ROUND */
+            padding: 5px; /* Breathing room inside the circle */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
+        /* Right Side Buttons */
         .nav-buttons { 
             display: flex; 
             justify-content: flex-end; 
@@ -106,7 +113,7 @@
         }
         .btn-join-nav:hover { background-color: #001a3a; box-shadow: 0 5px 15px rgba(0,40,85,0.3); }
 
-        /* --- HERO SECTION (ROTATING BANNER) --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             position: relative;
             padding-top: 100px;
@@ -127,7 +134,6 @@
             z-index: 0;
         }
 
-        /* Individual Slide */
         .hero-slide {
             position: absolute;
             top: 0;
@@ -137,16 +143,12 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            opacity: 0; /* Hidden by default */
-            transition: opacity 1s ease-in-out; /* Smooth fade transition */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
         
-        /* Active Slide (Visible) */
-        .hero-slide.active {
-            opacity: 1;
-        }
+        .hero-slide.active { opacity: 1; }
 
-        /* Slide Backgrounds + Dark Overlay */
         .slide-1 { background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/hero.jpg'); }
         .slide-2 { background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/heros.jpg'); }
         .slide-3 { background-image: linear-gradient(rgba(0, 40, 85, 0.5), rgba(0, 40, 85, 0.7)), url('assets/fleet.jpg'); }
@@ -176,7 +178,6 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
 
-        /* Blue Button Style */
         .hero-btn {
             background-color: var(--brand-navy);
             color: white;
@@ -255,8 +256,23 @@
         .plan-card { background: white; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
         .plan-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: var(--brand-green); }
         .plan-card.featured { border-top: 6px solid var(--brand-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-        .plan-head { padding: 35px 30px 25px; background: #fff; border-bottom: 1px solid var(--surface-light); }
-        .plan-icon { font-size: 36px; color: var(--brand-navy); margin-bottom: 15px; }
+        .plan-head { padding: 35px 30px 25px; background: #fff; border-bottom: 1px solid var(--surface-light); display: flex; flex-direction: column; align-items: center; text-align: center; }
+        
+        /* CUSTOM ICON BADGES */
+        .plan-badge { 
+            width: 70px; 
+            height: 70px; 
+            background-color: var(--brand-navy); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 20px; 
+            border: 3px solid var(--brand-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .plan-badge i { font-size: 28px; color: white; }
+
         .plan-title { font-size: 26px; font-weight: 800; color: var(--text-dark); }
         .plan-sub { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
         .bonus-pill { background: var(--brand-green); color: white; display: inline-block; padding: 6px 15px; border-radius: 30px; font-size: 13px; font-weight: 800; margin-top: 15px; }
@@ -392,13 +408,13 @@
 
     <section class="section-std">
         <div class="section-header">
-            <h2>Select Your Profile</h2>
+            <h2>Select a suitable plan for you</h2>
             <p>Choose the plan that fits your needs. Start with a SureBucks bonus and unlock perks as you go.</p>
         </div>
         <div class="plans-grid">
             <div class="plan-card">
                 <div class="plan-head">
-                    <i class="fas fa-user plan-icon"></i>
+                    <div class="plan-badge"><i class="fas fa-user"></i></div>
                     <h3 class="plan-title">Individual</h3>
                     <div class="plan-sub">Single Vehicle</div>
                     <div class="bonus-pill">+200 SureBucks Bonus</div>
@@ -414,7 +430,7 @@
             </div>
             <div class="plan-card featured">
                 <div class="plan-head">
-                    <i class="fas fa-users plan-icon"></i>
+                    <div class="plan-badge"><i class="fas fa-users"></i></div>
                     <h3 class="plan-title">Family</h3>
                     <div class="plan-sub">Multi-Vehicle</div>
                     <div class="bonus-pill">+600 SureBucks Bonus</div>
@@ -430,7 +446,7 @@
             </div>
             <div class="plan-card">
                 <div class="plan-head">
-                    <i class="fas fa-building plan-icon"></i>
+                    <div class="plan-badge"><i class="fas fa-building"></i></div>
                     <h3 class="plan-title">Fleet</h3>
                     <div class="plan-sub">Business</div>
                     <div class="bonus-pill">+800 SureBucks Bonus</div>
