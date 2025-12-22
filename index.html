@@ -50,10 +50,10 @@
         /* --- NAVIGATION (TRANSPARENT & LEFT ALIGNED LOGO) --- */
         nav {
             background-color: transparent;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%); /* Slight gradient for readability */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
             height: 100px;
             display: grid;
-            grid-template-columns: auto 1fr; /* Logo on left, rest of space on right */
+            grid-template-columns: auto 1fr;
             gap: 30px;
             align-items: center;
             padding: 0 5%;
@@ -64,33 +64,19 @@
             transition: background-color 0.3s;
         }
 
-        /* Logo Container - Left aligned */
-        .logo-container { 
-            display: flex; 
-            align-items: center;
-            text-decoration: none; 
-        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
         
-        /* Logo Image - BIGGER, NO BG, STEAL THE EYE */
         .logo-img { 
-            height: 120px; /* Significantly larger */
+            height: 120px; 
             width: auto; 
             object-fit: contain; 
-            /* Removed background and border */
-            /* Added a subtle light glow so the dark logo stands out until you upload the blue/yellow one */
             filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
             transition: transform 0.3s;
-            margin-top: 15px; /* Let it hang down */
+            margin-top: 15px; 
         }
         .logo-img:hover { transform: scale(1.05); }
 
-
-        /* Buttons - Right Aligned */
-        .nav-buttons { 
-            display: flex; 
-            justify-content: flex-end; 
-            align-items: center; 
-        }
+        .nav-buttons { display: flex; justify-content: flex-end; align-items: center; }
 
         .btn-login-nav { 
             color: var(--white);
@@ -127,7 +113,6 @@
             overflow: hidden;
         }
 
-        /* Slideshow Container */
         .hero-slideshow {
             position: absolute;
             top: 0;
@@ -152,7 +137,6 @@
         
         .hero-slide.active { opacity: 1; }
 
-        /* Gradient adjusted for white text readability */
         .slide-1 { background-image: linear-gradient(rgba(0, 20, 50, 0.4), rgba(0, 20, 50, 0.6)), url('assets/hero.jpg'); }
         .slide-2 { background-image: linear-gradient(rgba(0, 20, 50, 0.4), rgba(0, 20, 50, 0.6)), url('assets/heros.jpg'); }
         .slide-3 { background-image: linear-gradient(rgba(0, 20, 50, 0.4), rgba(0, 20, 50, 0.6)), url('assets/fleet.jpg'); }
@@ -163,7 +147,7 @@
             text-align: center;
             max-width: 800px;
             padding: 0 20px;
-            margin-top: 50px; /* Slight push to clear the big logo */
+            margin-top: 50px;
         }
 
         .hero-content h1 {
@@ -263,23 +247,18 @@
         .plan-card.featured { border-top: 6px solid var(--brand-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
         .plan-head { padding: 35px 30px 25px; background: #fff; border-bottom: 1px solid var(--surface-light); display: flex; flex-direction: column; align-items: center; text-align: center; }
         
-        /* CUSTOM ICON BADGES */
         .plan-badge { 
-            width: 70px; 
-            height: 70px; 
-            background-color: var(--brand-navy); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-bottom: 20px; 
-            border: 3px solid var(--brand-green);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 70px; height: 70px; background-color: var(--brand-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 3px solid var(--brand-green); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .plan-badge i { font-size: 28px; color: white; }
 
-        .plan-title { font-size: 26px; font-weight: 800; color: var(--text-dark); }
-        .plan-sub { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-top: 5px; }
+        .plan-title { font-size: 26px; font-weight: 800; color: var(--text-dark); margin-bottom: 5px;}
+        .plan-sub { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 15px; }
+        
+        /* PRICING STYLES */
+        .plan-price { font-size: 28px; font-weight: 800; color: var(--brand-navy); margin-bottom: 5px; }
+        .plan-price span { font-size: 14px; color: #888; font-weight: 400; }
+        
         .bonus-pill { background: var(--brand-green); color: white; display: inline-block; padding: 6px 15px; border-radius: 30px; font-size: 13px; font-weight: 800; margin-top: 15px; }
         .plan-body { padding: 30px; flex-grow: 1; }
         .feature-list { list-style: none; }
@@ -287,6 +266,13 @@
         .feature-item i { color: #ccc; margin-top: 4px; }
         .feature-item i.active { color: var(--brand-green); }
         .locked-text { color: #999; font-size: 13px; display:block; margin-top: 3px;}
+        
+        /* FLEET SLIDER STYLES */
+        .fleet-controls { margin-bottom: 20px; text-align: center; background: #f0f4f8; padding: 15px; border-radius: 8px; }
+        .slider-label { font-size: 12px; font-weight: 700; color: #555; display: block; margin-bottom: 10px; }
+        .fleet-range { width: 100%; accent-color: var(--brand-green); cursor: pointer; }
+        .fleet-count { font-size: 14px; font-weight: 800; color: var(--brand-navy); display: block; margin-top: 5px; }
+
         .plan-btn { display: block; width: 100%; padding: 15px; border: 2px solid var(--brand-navy); color: var(--brand-navy); text-align: center; font-weight: 700; text-decoration: none; border-radius: 4px; transition: 0.3s; margin-top: 25px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
         .plan-card:hover .plan-btn { background: var(--brand-navy); color: white; }
 
@@ -421,6 +407,7 @@
                     <div class="plan-badge"><i class="fas fa-user"></i></div>
                     <h3 class="plan-title">Individual</h3>
                     <div class="plan-sub">Single Vehicle</div>
+                    <div class="plan-price">R500<span>/mo</span></div>
                     <div class="bonus-pill">+200 SureBucks Bonus</div>
                 </div>
                 <div class="plan-body">
@@ -436,11 +423,13 @@
                 <div class="plan-head">
                     <div class="plan-badge"><i class="fas fa-users"></i></div>
                     <h3 class="plan-title">Family</h3>
-                    <div class="plan-sub">Multi-Vehicle</div>
+                    <div class="plan-sub">Starts at 2 Vehicles</div>
+                    <div class="plan-price">R800<span>/mo</span></div>
                     <div class="bonus-pill">+600 SureBucks Bonus</div>
                 </div>
                 <div class="plan-body">
                     <ul class="feature-list">
+                        <li class="feature-item"><i class="fas fa-plus-circle active"></i> <span>Add more vehicles in Dashboard</span></li>
                         <li class="feature-item"><i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span></li>
                         <li class="feature-item"><i class="fas fa-lock"></i> <div><span>2x Free Buff & Polish</span><br><span class="locked-text">Unlocks at 5,000 SB</span></div></li>
                         <li class="feature-item"><i class="fas fa-lock"></i> <div><span>2x Free Blends</span><br><span class="locked-text">Unlocks at 8,000 SB</span></div></li>
@@ -453,13 +442,22 @@
                     <div class="plan-badge"><i class="fas fa-building"></i></div>
                     <h3 class="plan-title">Fleet</h3>
                     <div class="plan-sub">Business</div>
+                    
+                    <div class="fleet-controls">
+                        <span class="slider-label">Fleet Size: <span id="fleet-count-display">5</span> Vehicles</span>
+                        <input type="range" id="fleet-slider" class="fleet-range" min="5" max="50" value="5" oninput="updateFleetPrice()">
+                    </div>
+
+                    <div class="plan-price" id="fleet-price-display">R4,000<span>/mo</span></div>
                     <div class="bonus-pill">+800 SureBucks Bonus</div>
                 </div>
                 <div class="plan-body">
                     <ul class="feature-list">
                         <li class="feature-item"><i class="fas fa-bolt active"></i> <span>VIP Drop Access (First Look)</span></li>
-                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>3x Free Buff & Polish</span><br><span class="locked-text">Unlocks at 10,000 SB</span></div></li>
-                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>10x Free Blends</span><br><span class="locked-text">Unlocks at 20,000 SB</span></div></li>
+                        <li class="feature-item"><i class="fas fa-star active"></i> <span>Priority Queue</span></li>
+                        <li class="feature-item"><i class="fas fa-user-tie active"></i> <span>Ded. Account Manager</span></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>Free Buff & Polish</span><br><span class="locked-text">Unlocks at 10,000 SB</span></div></li>
+                        <li class="feature-item"><i class="fas fa-lock"></i> <div><span>15x Free Blends</span><br><span class="locked-text">Unlocks at 20,000 SB</span></div></li>
                     </ul>
                     <a href="#" class="plan-btn">Select Plan</a>
                 </div>
@@ -530,6 +528,7 @@
     </footer>
 
     <script>
+        // Hero Slideshow
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
         const totalSlides = slides.length;
@@ -539,8 +538,17 @@
             currentSlide = (currentSlide + 1) % totalSlides;
             slides[currentSlide].classList.add('active');
         }
-
         setInterval(rotateSlides, 5000);
+
+        // Fleet Price Calculator
+        function updateFleetPrice() {
+            const vehicleCount = document.getElementById('fleet-slider').value;
+            const price = vehicleCount * 800; // Linear formula: Cars * 800
+            
+            // Update Text
+            document.getElementById('fleet-count-display').innerText = vehicleCount;
+            document.getElementById('fleet-price-display').innerHTML = 'R' + price.toLocaleString() + '<span>/mo</span>';
+        }
     </script>
 
 </body>
